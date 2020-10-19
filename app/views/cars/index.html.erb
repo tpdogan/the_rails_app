@@ -13,6 +13,14 @@
   </thead>
 
   <tbody>
+<%# ERB is like PHP, code embedded inside HTML 
+use <% to runs some code
+use <%= to return some output to HTML
+use <%# to comment out %>
+<%# See below example for a clear code%>
+
+<%# raw means run the code as in html %>
+  <%= raw "<h2>The car list</h2>" %>
     <% @cars.each do |car| %>
       <tr>
         <td><%= car.make %></td>
@@ -23,6 +31,11 @@
         <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+<%# A simple way to render all cars without much coding is via partials
+<P= render @cars P> replace P with %
+and involve <td>...</td> parts in a partial
+Basically render same thing to all elements, rails got this..
+%>
   </tbody>
 </table>
 

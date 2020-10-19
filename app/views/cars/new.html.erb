@@ -1,5 +1,21 @@
 <h1>New Car</h1>
-
+<%# _form.html is a partial and it is rendered by the following
+Notice that _ and .html parts are omitted!%>
+<%# If there are many partials, place them in a seperate folder (e.g. shared)
+Access to the seperate folder via shared/from %>
+<%# partials can also use different layouts%>
 <%= render 'form', car: @car %>
+<%# passing variables can be done via :locals => { :car => car } %>
+<%# place repeating codes in a partial for easier and cleaner use %>
 
+<%# link_to involves a clean anchor tag with given string innerHTML%>
 <%= link_to 'Back', cars_path %>
+
+<%# a shorthand for rendering class instance with partial of the same name is:
+<P= render @car P> %>
+<%# render can involve a collection 
+<P= render partial: 'form', collection: @cars P> 
+<P= render [car1, human1] || alien , as: :item P> -> this will render _car.html.erb and _human.html.erb respectively  or alien if the others are not found.
+the variable can be accessed within the partial using item as its common name.
+In this case, item_counter would count how many times this partial has been rendered (_counter)
+<P= render @cars, spacer_template: 'gap' P> -> the gap template is put between each render%>

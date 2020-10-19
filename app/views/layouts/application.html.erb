@@ -4,12 +4,16 @@
     <title>MyFirstRailsApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+<%# application.js(css) is already in app/assets/ folder. rails knows it.%>
+<%# multiple scripts are contained as such: 'application', 'main', '/more/col', 'http://example.com/main.js'%>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+<%# yield inserts all fields from other views%>
+<%# a specific yield can be formed via <P= yield :head P> %>
+<%# for this yield the partial must have <P content_for :head P>%>
     <%= yield %>
   </body>
 </html>
